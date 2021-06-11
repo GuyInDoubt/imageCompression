@@ -14,3 +14,4 @@ Route::get('/', function () {
 });
 
 Route::post('imageUpload', [imageController::class, 'index']);
+Route::get('getImage',[imageController::class, 'getLastImage']);

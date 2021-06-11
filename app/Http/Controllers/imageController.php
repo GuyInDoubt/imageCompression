@@ -42,5 +42,9 @@ class imageController extends Controller
         $imageDt->save(); 
 
         return back();                                                                   
+    }
+    public function getLastImage(){
+        $imageDt = imageDt::latest()->first();
+        return response()->json($imageDt);
     }  
 }

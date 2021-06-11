@@ -25,10 +25,34 @@
             </form>
         </div>
     </div>
-
+    <div class="container">
+        <h5>Orginal</h5>
+        <img src="#" id="orginal">
+        <h5>Medium</h5>
+        <img src="#" id="medium">
+        <h5>Large</h5>
+        <img src="#" id="large">
+        <h5>X-Large</h5>
+        <img src="#" id="xlarge">
+        <h5>XX-Large</h5>
+        <img src="#" id="xxlarge">
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
 </body>
-
+<script>
+fetch("http://127.0.0.1:8000/getImage")
+  .then(response => response.text())
+  .then(function(result){
+      let response = JSON.parse(result);
+      let url = `http://127.0.0.1:8000/storage/`;
+      document.getElementById("orginal").src= url+'Original-'+response.name;
+      document.getElementById("medium").src= url+'Medium-'+response.name;
+      document.getElementById("large").src= url+'Large-'+response.name;   
+      document.getElementById("xlarge").src= url+'XLarge-'+response.name;   
+      document.getElementById("xxlarge").src= url+'XXLarge-'+response.name;      
+  })
+  .catch(error => console.log('error', error));
+</script>
 </html>
