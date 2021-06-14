@@ -42,11 +42,11 @@
     </script>
 </body>
 <script>
-fetch("http://127.0.0.1:8000/getImage")
+fetch("http://localhost/imageCompression/getImage")
   .then(response => response.text())
   .then(function(result){
       let response = JSON.parse(result);
-      let url = `http://127.0.0.1:8000/storage/`;
+      let url = `http://localhost/imageCompression/public/storage/`;
       document.getElementById("orginal").src= url+'Original-'+response.name;
       document.getElementById("medium").src= url+'Medium-'+response.name;
       document.getElementById("large").src= url+'Large-'+response.name;   
