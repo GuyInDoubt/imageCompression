@@ -20,7 +20,7 @@
             <form method="POST" action="imageUpload" enctype="multipart/form-data">
                 @csrf
                 <label for="formFile" class="form-label">Choose image</label>
-                <input class="form-control mb-3" type="file" id="formFile" name="file">
+                <input class="form-control mb-3" type="file" id="formFile" name="file[]" multiple>
                 <input type="submit" name="imageUpload">
             </form>
         </div>
@@ -41,7 +41,7 @@
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
 </body>
-<script>
+<script>    
 fetch("http://localhost/imageCompression/getImage")
   .then(response => response.text())
   .then(function(result){

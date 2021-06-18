@@ -9,9 +9,6 @@ use App\Http\Controllers\imageController;
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('imageUpload');
-});
-
+Route::get('imageUpload', [imageController::class, 'create']);
 Route::post('imageUpload', [imageController::class, 'index']);
 Route::get('getImage',[imageController::class, 'getLastImage']);
